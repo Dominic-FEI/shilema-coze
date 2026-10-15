@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="拾了么 · 校园失物招领与闲置互换" />
+  <title>拾了么 · 首页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/theme.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header id="app-header" class="app-chrome"></header>
+
+    <main>
+      <section class="hero page__inner">
+        <p class="xisu-mark reveal">西外校园互助</p>
+        <h1 class="brand reveal">拾了么</h1>
+        <p class="brand__tag reveal">
+          校园失物招领与闲置互换。登记用手机号或学号·姓名·学院；闲置互换联系后线下看成色。
+        </p>
+        <div class="gate-grid reveal">
+          <a class="gate" href="feed.html">
+            <div class="gate__eyebrow">H5 · FEED</div>
+            <h2 class="gate__title">校园社区</h2>
+            <p class="gate__desc">移动端单列信息流：置顶、点赞、评论；评论前 10 秒责任声明。</p>
+            <p class="gate__meta">打开 Feed →</p>
+          </a>
+          <a class="gate" href="lost.html">
+            <div class="gate__eyebrow">MAIN · 01</div>
+            <h2 class="gate__title">失物招领</h2>
+            <p class="gate__desc">浏览他人帖子与关键字搜索；点「+」登记并上传照片。</p>
+            <p class="gate__meta">进入信息流 →</p>
+          </a>
+          <a class="gate gate--accent" href="trade.html">
+            <div class="gate__eyebrow">MAIN · 02</div>
+            <h2 class="gate__title">闲置交易</h2>
+            <p class="gate__desc">浏览闲置信息流与搜索；点「+」发布，互换联系后线下看成色。</p>
+            <p class="gate__meta">进入信息流 →</p>
+          </a>
+        </div>
+        <div class="btn-group reveal">
+          <a class="btn btn--primary" href="profile.html">个人主页</a>
+          <a class="btn btn--secondary" href="messages.html">私信</a>
+          <button type="button" class="btn btn--ghost" data-action="open-chat">打开 AI 助手</button>
+        </div>
+
+        <figure class="campus-scape reveal">
+          <div class="campus-scape__frame">
+            <img
+              class="campus-scape__photo"
+              src="./assets/xisu-campus-hero.jpg"
+              alt="西安外国语大学长安校区校园风貌"
+              width="1280"
+              height="720"
+              loading="lazy"
+            />
+            <div class="campus-scape__veil" aria-hidden="true"></div>
+            <figcaption class="campus-scape__caption">
+              <span class="campus-scape__eyebrow">XISU · CHANG'AN</span>
+              <strong class="campus-scape__title">长安校区</strong>
+              <span class="campus-scape__sub">图书馆 · 连体教学楼 · 文苑南路</span>
+            </figcaption>
+          </div>
+          <ul class="campus-scape__spots" aria-label="校园地标">
+            <li class="campus-scape__spot">
+              <span class="campus-scape__spot-name">图书馆</span>
+              <span class="campus-scape__spot-desc">六层馆舍 · 多语种文献</span>
+            </li>
+            <li class="campus-scape__spot">
+              <span class="campus-scape__spot-name">连体教学楼</span>
+              <span class="campus-scape__spot-desc">廊桥相连 · 校区地标</span>
+            </li>
+            <li class="campus-scape__spot">
+              <span class="campus-scape__spot-name">晨曦园 / 绿地</span>
+              <span class="campus-scape__spot-desc">校园漫步 · 失物常现</span>
+            </li>
+          </ul>
+        </figure>
+      </section>
+
+      <div class="page__inner">
+        <section class="section reveal">
+          <h2 class="section__title">怎么用</h2>
+          <p class="section__desc">先用学号注册账号，再进入两大主功能；需要引导时可唤起扣子助手。</p>
+          <ol class="steps">
+            <li class="steps__item">个人主页：学号注册，完善头像、昵称、性别、手机号</li>
+            <li class="steps__item">失物招领：浏览信息流 / 搜索 → 点「+」登记（手机号或学号+姓名+学院）并上传图</li>
+            <li class="steps__item">闲置交易：浏览 / 搜索 →「+」发布 → 申请互换联系 → 线下看成色</li>
+            <li class="steps__item">AI 助手：自然语言整理登记信息、核验凭证、生成文案</li>
+          </ol>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section__title">演示账号</h2>
+          <p class="section__desc">本地已预置示例数据，密码均为 <code>123456</code>。</p>
+          <div class="split">
+            <div class="panel">
+              <h3 class="panel__title">卖方示例</h3>
+              <p class="text-secondary">学号 2021001001 · 林晓棠</p>
+            </div>
+            <div class="panel">
+              <h3 class="panel__title">买方示例</h3>
+              <p class="text-secondary">学号 2021002002 · 周怀远</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/cn/index.js"></script>
+  <script src="./js/version.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/shell.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/chat.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      SHILEMA_UI.renderShell("home");
+      SHILEMA_UI.initReveal();
+    });
+  </script>
+</body>
+</html>

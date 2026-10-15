@@ -1,0 +1,197 @@
+/**
+ * 拾了么 · Design Tokens v1.6
+ * 西外藏蓝 × 暖琥珀 · 日间 / 夜间
+ * 协议：雾灰纸面 + 琥珀侧栏；移动 Feed：卡片纸白 + 墨色层次（禁止 AI 蓝紫）
+ */
+
+:root,
+[data-theme="light"] {
+  --color-brand: #1a3668;
+  --color-brand-hover: #122748;
+  --color-brand-soft: #e8eef6;
+  --color-on-brand: #ffffff;
+  --color-accent: #b86a1c;
+  --color-accent-hover: #9a5816;
+  --color-accent-soft: #f8ebd9;
+  --color-on-accent: #ffffff;
+  --color-ink: #142033;
+  --color-ink-secondary: #4a5568;
+  --color-ink-muted: #7a8494;
+  --color-border: #d5dce6;
+  --color-border-strong: #a8b4c4;
+  --color-bg: #f3f5f8;
+  --color-bg-elevated: #fafbfc;
+  --color-surface: #ffffff;
+  --color-overlay: rgba(15, 23, 36, 0.48);
+  --color-selected: #e8eef6;
+  --color-selected-ink: #1a3668;
+
+  --color-success: #2f6b4f;
+  --color-success-soft: #e3f0e9;
+  --color-warning: #a66b1f;
+  --color-warning-soft: #f7ebd8;
+  --color-danger: #a33b32;
+  --color-danger-soft: #f8e6e4;
+  --color-info: #3d5a7a;
+
+  /* 法定告知组件：层次用墨色阶梯，强调用深琥珀而非蓝紫 */
+  --color-legal-rail: #8f5a28;
+  --color-legal-paper: #eef1f5;
+  --color-legal-ink: #142033;
+  --color-legal-muted: #5a6578;
+  --color-legal-check: #1a3668;
+
+  /* 移动社区 Feed */
+  --color-feed-card: #ffffff;
+  --color-feed-meta: #5c6778;
+  --color-feed-action: #1a3668;
+  --color-feed-like: #a66b1f;
+  --color-feed-pin: #8f5a28;
+  --color-chat-mine: #1a3668;
+  --color-chat-mine-ink: #ffffff;
+  --color-chat-peer: #eef1f5;
+  --color-chat-peer-ink: #142033;
+  --m-safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  --header-bg: rgba(250, 251, 252, 0.92);
+  --bg-glow-a: rgba(26, 54, 104, 0.1);
+  --bg-glow-b: rgba(184, 106, 28, 0.07);
+  --bg-end: #e6ebf2;
+  --crest-filter: none;
+  --campus-veil: linear-gradient(
+    105deg,
+    rgba(26, 54, 104, 0.55) 0%,
+    rgba(26, 54, 104, 0.18) 42%,
+    rgba(184, 106, 28, 0.12) 100%
+  );
+  --campus-caption-ink: #f7f9fc;
+  --campus-caption-shadow: 0 1px 8px rgba(15, 23, 36, 0.35);
+  --campus-photo-filter: saturate(0.92) contrast(1.02);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 36, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 36, 0.12);
+}
+
+[data-theme="dark"] {
+  --color-brand: #8eb0de;
+  --color-brand-hover: #b4c9ea;
+  --color-brand-soft: #243552;
+  --color-on-brand: #0f1724;
+  --color-accent: #e0a04a;
+  --color-accent-hover: #f0b45c;
+  --color-accent-soft: #3a2e1c;
+  --color-on-accent: #1a1208;
+  --color-ink: #e8eef6;
+  --color-ink-secondary: #b0baca;
+  --color-ink-muted: #8a96a8;
+  --color-border: #31415a;
+  --color-border-strong: #4a5d78;
+  --color-bg: #0f1724;
+  --color-bg-elevated: #162033;
+  --color-surface: #1a2740;
+  --color-overlay: rgba(0, 0, 0, 0.55);
+  --color-selected: #2a4060;
+  --color-selected-ink: #d4e2f5;
+
+  --color-success: #6bb892;
+  --color-success-soft: #1e3a2e;
+  --color-warning: #d4a35a;
+  --color-warning-soft: #3a2e1c;
+  --color-danger: #e08a82;
+  --color-danger-soft: #3a2220;
+  --color-info: #8aa4c4;
+
+  --color-legal-rail: #c9954a;
+  --color-legal-paper: #1c2838;
+  --color-legal-ink: #e8eef6;
+  --color-legal-muted: #9aa6b8;
+  --color-legal-check: #8eb0de;
+
+  --color-feed-card: #1a2740;
+  --color-feed-meta: #9aa6b8;
+  --color-feed-action: #8eb0de;
+  --color-feed-like: #e0a04a;
+  --color-feed-pin: #c9954a;
+  --color-chat-mine: #3d5a7a;
+  --color-chat-mine-ink: #f7f9fc;
+  --color-chat-peer: #243552;
+  --color-chat-peer-ink: #e8eef6;
+
+  --header-bg: rgba(22, 32, 51, 0.94);
+  --bg-glow-a: rgba(126, 160, 212, 0.08);
+  --bg-glow-b: rgba(212, 146, 58, 0.06);
+  --bg-end: #0c121c;
+  --crest-filter: drop-shadow(0 0 0.5px rgba(232, 238, 246, 0.35));
+  --campus-veil: linear-gradient(
+    105deg,
+    rgba(15, 23, 36, 0.72) 0%,
+    rgba(26, 54, 104, 0.42) 48%,
+    rgba(58, 46, 28, 0.35) 100%
+  );
+  --campus-caption-ink: #e8eef6;
+  --campus-caption-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  --campus-photo-filter: saturate(0.78) brightness(0.88) contrast(1.05);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+:root {
+  --font-display: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+  --font-art: "Ma Shan Zheng", "Zhi Mang Xing", "KaiTi", "STKaiti", cursive;
+  --font-sans: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+
+  --text-hero: 2.5rem;
+  --text-h1: 1.75rem;
+  --text-h2: 1.375rem;
+  --text-h3: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-metric: 2rem;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-body: 1.7;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --bp-sm: 640px;
+  --bp-md: 960px;
+  --bp-lg: 1200px;
+
+  --width-narrow: 640px;
+  --width-content: 880px;
+  --width-wide: 1080px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --page-pad-x: 16px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-normal: 280ms;
+
+  --control-height: 44px;
+}
+
+@media (min-width: 960px) {
+  :root {
+    --page-pad-x: 24px;
+    --text-hero: 2.75rem;
+  }
+}

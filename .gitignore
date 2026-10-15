@@ -1,0 +1,19 @@
+# secrets
+.env
+**/.env
+web/js/config.local.js
+web/js/config.js
+
+# deps
+node_modules/
+server/node_modules/
+
+# logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# editor
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拾了么 · 闲置交易</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/theme.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header id="app-header" class="app-chrome"></header>
+    <main class="page__inner">
+      <section class="page-hero reveal">
+        <p class="xisu-mark">闲置互换</p>
+        <h1 class="brand">闲置交易</h1>
+        <p class="brand__tag">浏览他人闲置 · 按时间排序 · 关键字搜索；点「+」发布并上传照片，互换联系后线下看成色。</p>
+      </section>
+
+      <section class="section reveal">
+        <div class="feed-head">
+          <div class="feed-head__text">
+            <h2 class="feed-head__title">信息流</h2>
+            <p class="feed-head__meta" id="trade-count">按发布时间从新到旧</p>
+          </div>
+          <button type="button" class="fab-plus fab-plus--accent" id="trade-fab" aria-expanded="false" aria-controls="trade-composer" title="发布闲置">+</button>
+        </div>
+
+        <div class="composer" id="trade-composer" hidden>
+          <h3 class="composer__title">发布闲置</h3>
+          <p class="composer__desc">需登录。联系方式默认隐藏；买家申请互换后双方可见。可上传实物照片。</p>
+          <form id="trade-form">
+            <div class="field-row">
+              <label class="field">
+                <span class="field__label">物品名称</span>
+                <input class="input" name="title" required placeholder="如：九成新台灯" />
+              </label>
+              <label class="field">
+                <span class="field__label">类别</span>
+                <input class="input" name="category" placeholder="生活 / 书籍 / 数码" />
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span class="field__label">成色</span>
+                <input class="input" name="condition" placeholder="九成新 / 有轻微磨损" />
+              </label>
+              <label class="field">
+                <span class="field__label">面交地点</span>
+                <input class="input" name="place" placeholder="梅园门口 / 二教" />
+              </label>
+            </div>
+            <div class="field">
+              <span class="field__label">方式</span>
+              <div class="radio-row">
+                <label><input type="radio" name="dealType" value="sell" checked /> 转让</label>
+                <label><input type="radio" name="dealType" value="exchange" /> 置换</label>
+              </div>
+            </div>
+            <label class="field">
+              <span class="field__label">价格或置换说明</span>
+              <input class="input" name="priceText" placeholder="35 元 / 可置换文具" />
+            </label>
+            <label class="field">
+              <span class="field__label">补充说明 / 关键字</span>
+              <textarea class="textarea" name="description" placeholder="配件、通电试机等，便于他人搜索"></textarea>
+            </label>
+            <label class="field">
+              <span class="field__label">物品图片</span>
+              <input class="input" type="file" name="image" accept="image/*" />
+              <span class="field__hint">建议小于 1.2MB</span>
+              <img id="trade-image-preview" class="media-thumb" alt="预览" hidden style="margin-top: var(--space-3)" />
+            </label>
+            <div data-legal-mount="publish" id="trade-legal"></div>
+            <div class="btn-group">
+              <button type="submit" class="btn btn--secondary">发布闲置</button>
+              <button type="button" class="btn btn--ghost" id="trade-composer-close">收起</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="search-bar">
+          <input
+            class="search-bar__input"
+            id="trade-search"
+            type="search"
+            placeholder="搜索关键字：物品名、成色、地点、价格说明…"
+            autocomplete="off"
+          />
+          <button type="button" class="search-bar__clear" id="trade-search-clear" hidden>清除</button>
+        </div>
+
+        <div class="feed-toolbar">
+          <p class="text-secondary" style="margin:0">联系方式默认隐藏，申请互换后双方可见。</p>
+          <button type="button" class="btn btn--ghost" data-action="open-chat">AI 写文案</button>
+        </div>
+
+        <div id="trade-list" class="item-list" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <div class="modal" id="exchange-modal" hidden>
+    <div class="modal__backdrop"></div>
+    <div class="modal__dialog" role="dialog" aria-labelledby="exchange-title">
+      <h3 class="modal__title" id="exchange-title">确认互换联系方式</h3>
+      <div class="modal__body">
+        <p class="modal__lead">确认后双方可见手机号 / 学号姓名学院。平台不代收代付、不担保成色与交易结果。</p>
+        <ul class="modal__list">
+          <li>请在校内公共场所当面查验成色后再付款或置换</li>
+          <li>互换获得的联系方式仅用于本次交易沟通</li>
+          <li>线下纠纷由买卖双方自行依法解决</li>
+        </ul>
+        <label class="legal-consent__check" for="exchange-ack">
+          <input type="checkbox" id="exchange-ack" />
+          <span class="legal-consent__check-text">我已了解线下看成色与责任自负，确认申请互换</span>
+        </label>
+        <p class="legal-consent__error" id="exchange-ack-error" hidden role="alert">请先勾选确认后再互换。</p>
+      </div>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" id="exchange-cancel">取消</button>
+        <button type="button" class="btn btn--secondary" id="exchange-confirm">确认互换</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/cn/index.js"></script>
+  <script src="./js/version.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/legal.js"></script>
+  <script src="./js/shell.js"></script>
+  <script src="./js/mobile-shell.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/pages/trade.js"></script>
+</body>
+</html>

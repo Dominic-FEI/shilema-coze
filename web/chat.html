@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>拾了么 · 聊天</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/theme.js"></script>
+</head>
+<body>
+  <header id="app-header" class="app-chrome"></header>
+  <div class="m-page--chat" id="chat-page">
+    <header class="m-topbar">
+      <a class="btn btn--ghost" href="messages.html" style="min-height:36px;padding:0 12px">返回</a>
+      <h1 class="m-topbar__title" id="chat-title">私信
+        <span class="m-topbar__sub" id="chat-sub">校园互助沟通</span>
+      </h1>
+    </header>
+
+    <div class="chat-thread" id="chat-thread" aria-live="polite"></div>
+
+    <div class="chat-composer">
+      <div id="emoji-slot"></div>
+      <div class="chat-composer__tools">
+        <button type="button" class="btn btn--ghost" id="chat-emoji" style="min-height:36px;padding:0 10px">表情</button>
+        <label class="btn btn--ghost" style="min-height:36px;padding:0 10px;display:inline-flex;align-items:center;cursor:pointer">
+          照片
+          <input type="file" id="chat-image" accept="image/*" hidden />
+        </label>
+        <label class="btn btn--ghost" style="min-height:36px;padding:0 10px;display:inline-flex;align-items:center;cursor:pointer">
+          文件
+          <input type="file" id="chat-file" hidden />
+        </label>
+      </div>
+      <div class="chat-composer__row">
+        <textarea class="textarea chat-composer__input" id="chat-input" rows="1" placeholder="输入消息…"></textarea>
+        <button type="button" class="btn btn--primary" id="chat-send" style="min-height:40px">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/cn/index.js"></script>
+  <script src="./js/version.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/community.js"></script>
+  <script src="./js/emoji.js"></script>
+  <script src="./js/shell.js"></script>
+  <script src="./js/mobile-shell.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/pages/chat-dm.js"></script>
+</body>
+</html>

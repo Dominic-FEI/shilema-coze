@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>拾了么 · 帖子详情</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/theme.js"></script>
+</head>
+<body>
+  <header id="app-header" class="app-chrome"></header>
+  <div class="m-page" id="post-page">
+    <header class="m-topbar">
+      <a class="btn btn--ghost" href="feed.html" style="min-height:36px;padding:0 12px">返回</a>
+      <h1 class="m-topbar__title">帖子详情
+        <span class="m-topbar__sub">评论前须阅读 10 秒责任声明</span>
+      </h1>
+    </header>
+
+    <div id="post-detail" class="feed-stream"></div>
+
+    <section class="section" style="padding:0 var(--space-4)">
+      <h2 class="section__title" style="font-size:var(--text-h3)">评论区</h2>
+      <p class="section__desc">发表评论前将弹出网络安全与言论责任声明，需阅读满 10 秒并勾选确认。</p>
+    </section>
+    <div id="comment-list" class="comment-list"></div>
+
+    <div class="comment-box">
+      <label class="field" style="margin:0">
+        <span class="field__label">写评论</span>
+        <textarea class="textarea" id="comment-input" rows="2" placeholder="友善发言，禁止不良与违法内容"></textarea>
+      </label>
+      <button type="button" class="btn btn--primary" id="comment-submit">发表评论</button>
+    </div>
+  </div>
+  <footer class="site-footer" id="app-footer"></footer>
+
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/cn/index.js"></script>
+  <script src="./js/version.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/legal.js"></script>
+  <script src="./js/community.js"></script>
+  <script src="./js/shell.js"></script>
+  <script src="./js/mobile-shell.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/pages/post.js"></script>
+</body>
+</html>

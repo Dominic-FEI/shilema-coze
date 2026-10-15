@@ -1,0 +1,19 @@
+{
+  "name": "shilema-local-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "拾了么 · 可选本地 Node 服务（PAT 放服务端）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@coze/api": "^1.3.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

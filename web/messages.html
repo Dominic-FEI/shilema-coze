@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>拾了么 · 私信</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/theme.js"></script>
+</head>
+<body>
+  <header id="app-header" class="app-chrome"></header>
+  <div class="m-page">
+    <header class="m-topbar">
+      <h1 class="m-topbar__title">私信
+        <span class="m-topbar__sub">支持文字 · 照片 · 文件 · 免费表情</span>
+      </h1>
+      <button type="button" class="btn btn--ghost" id="dm-new" style="min-height:36px;padding:0 12px">新对话</button>
+    </header>
+
+    <div id="dm-start" class="feed-composer" hidden>
+      <h2 class="feed-composer__title">选择校友开始私信</h2>
+      <div id="dm-peers" class="btn-group" style="flex-direction:column;align-items:stretch"></div>
+      <button type="button" class="btn btn--ghost" id="dm-start-close">取消</button>
+    </div>
+
+    <div id="dm-list" class="dm-list" aria-live="polite"></div>
+  </div>
+  <footer class="site-footer" id="app-footer"></footer>
+
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/cn/index.js"></script>
+  <script src="./js/version.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/community.js"></script>
+  <script src="./js/shell.js"></script>
+  <script src="./js/mobile-shell.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/pages/messages.js"></script>
+</body>
+</html>

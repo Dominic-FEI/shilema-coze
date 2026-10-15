@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拾了么 · 失物招领</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/theme.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header id="app-header" class="app-chrome"></header>
+    <main class="page__inner">
+      <section class="page-hero reveal">
+        <p class="xisu-mark">失物互助</p>
+        <h1 class="brand">失物招领</h1>
+        <p class="brand__tag">浏览他人发布 · 按时间排序 · 关键字搜索；点「+」登记并上传照片。</p>
+      </section>
+
+      <section class="section reveal">
+        <div class="feed-head">
+          <div class="feed-head__text">
+            <h2 class="feed-head__title">信息流</h2>
+            <p class="feed-head__meta" id="lost-count">按发布时间从新到旧</p>
+          </div>
+          <button type="button" class="fab-plus" id="lost-fab" aria-expanded="false" aria-controls="lost-composer" title="发布登记">+</button>
+        </div>
+
+        <div class="composer" id="lost-composer" hidden>
+          <h3 class="composer__title">发布登记</h3>
+          <p class="composer__desc">需登录。联系方式：手机号，或完整学号 + 姓名 + 学院；可上传物品照片。</p>
+          <form id="lost-form">
+            <div class="field">
+              <span class="field__label">类型</span>
+              <div class="radio-row">
+                <label><input type="radio" name="kind" value="found" checked /> 我拾到了</label>
+                <label><input type="radio" name="kind" value="lost" /> 我在寻找</label>
+              </div>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span class="field__label">物品名称</span>
+                <input class="input" name="title" required placeholder="如：黑色雨伞" />
+              </label>
+              <label class="field">
+                <span class="field__label">类别</span>
+                <input class="input" name="category" placeholder="数码 / 证件 / 日用" />
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span class="field__label">地点</span>
+                <input class="input" name="place" placeholder="图书馆 / 食堂" />
+              </label>
+              <label class="field">
+                <span class="field__label">时间说明</span>
+                <input class="input" name="timeText" placeholder="昨天下午三点左右" />
+              </label>
+            </div>
+            <label class="field">
+              <span class="field__label">外观特征 / 关键字说明</span>
+              <textarea class="textarea" name="features" placeholder="贴纸、划痕、壳内字样等，便于他人搜索"></textarea>
+            </label>
+            <label class="field">
+              <span class="field__label">物品图片</span>
+              <input class="input" type="file" name="image" accept="image/*" />
+              <span class="field__hint">建议小于 1.2MB</span>
+              <img id="lost-image-preview" class="media-thumb" alt="预览" hidden style="margin-top: var(--space-3)" />
+            </label>
+            <div class="field">
+              <span class="field__label">联系方式（二选一）</span>
+              <div class="radio-row">
+                <label><input type="radio" name="contactMode" value="phone" checked /> 手机号</label>
+                <label><input type="radio" name="contactMode" value="student" /> 学号 + 姓名 + 学院</label>
+              </div>
+            </div>
+            <div data-contact="phone">
+              <label class="field">
+                <span class="field__label">手机号</span>
+                <input class="input" name="phone" inputmode="tel" placeholder="11 位手机号" />
+              </label>
+            </div>
+            <div data-contact="student" hidden>
+              <div class="field-row">
+                <label class="field">
+                  <span class="field__label">完整学号</span>
+                  <input class="input" name="studentId" placeholder="如 2021001001" />
+                </label>
+                <label class="field">
+                  <span class="field__label">真实姓名</span>
+                  <input class="input" name="studentName" placeholder="与校园卡一致" />
+                </label>
+              </div>
+              <label class="field">
+                <span class="field__label">学院</span>
+                <input class="input" name="college" placeholder="如：英文学院" />
+              </label>
+            </div>
+            <div data-legal-mount="publish" id="lost-legal"></div>
+            <div class="btn-group">
+              <button type="submit" class="btn btn--primary">提交登记</button>
+              <button type="button" class="btn btn--ghost" id="lost-composer-close">收起</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="search-bar">
+          <input
+            class="search-bar__input"
+            id="lost-search"
+            type="search"
+            placeholder="搜索关键字：物品名、地点、特征、类别…"
+            autocomplete="off"
+          />
+          <button type="button" class="search-bar__clear" id="lost-search-clear" hidden>清除</button>
+        </div>
+
+        <div class="feed-toolbar">
+          <div class="seg" role="tablist" aria-label="筛选">
+            <button type="button" class="seg__btn is-active" data-filter="all">全部</button>
+            <button type="button" class="seg__btn" data-filter="found">拾获</button>
+            <button type="button" class="seg__btn" data-filter="lost">寻物</button>
+          </div>
+          <button type="button" class="btn btn--ghost" data-action="open-chat">AI 协助</button>
+        </div>
+
+        <div id="lost-list" class="item-list" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer class="site-footer" id="app-footer"></footer>
+  </div>
+
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.10/libs/cn/index.js"></script>
+  <script src="./js/version.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/legal.js"></script>
+  <script src="./js/shell.js"></script>
+  <script src="./js/mobile-shell.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/pages/lost.js"></script>
+</body>
+</html>
